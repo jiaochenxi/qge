@@ -4,8 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="./init.js"></script>
+
 </head>
 <body>
-	<a href="itms-services:///?action=download-manifest&url=https://github.com/jiaochenxi/qge/raw/master/test.plist" style="font-size:20px;">点击此处安装</a>
+	<script type="text/javascript">
+    	var u = navigator.userAgent;
+		var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+		var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			if(isAndroid){
+				document.write('<a href="http://118.178.17.5:8095/android-debug.apk" style="font-size:0.6rem;display:block;text-align:center;padding:1.2rem 0;">点击此处安装</a>');
+			}
+			else if(isiOS){
+				document.write('<a href="itms-services:///?action=download-manifest&url=https://github.com/jiaochenxi/qge/raw/master/test.plist" style="font-size:0.6rem;display:block;text-align:center;padding:1.2rem 0;">点击此处安装</a>');
+			}else{
+				alert('请用手机打开');
+			}
+    </script>
+	
 </body>
 </html>
